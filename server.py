@@ -48,8 +48,9 @@ def contact():
         
 
 
-logging.getLogger('werkzeug').disabled = True
-os.environ['WERKZEUG_RUN_MAIN'] = 'true'
+import flask.cli    
+flask.cli.show_server_banner = lambda *args: None
+logging.getLogger("werkzeug").disabled = True
 
 if __name__ == "__main__":
     app.run(port=8080)
