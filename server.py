@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request
 from datetime import datetime
 import os
+import logging
+app.logger.disabled = True
+log = logging.getLogger('werkzeug')
+log.disabled = True
 
 app = Flask(__name__)
 
