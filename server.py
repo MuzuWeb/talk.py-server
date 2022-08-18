@@ -2,9 +2,6 @@ from flask import Flask, render_template, request
 from datetime import datetime
 import os
 import logging
-app.logger.disabled = True
-log = logging.getLogger('werkzeug')
-log.disabled = True
 
 app = Flask(__name__)
 
@@ -51,7 +48,8 @@ def contact():
         
 
 
-
+logging.getLogger('werkzeug').disabled = True
+os.environ['WERKZEUG_RUN_MAIN'] = 'true'
 
 if __name__ == "__main__":
     app.run(port=8080)
